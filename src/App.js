@@ -52,7 +52,7 @@ function App() {
 
   return (
     <div className="container">
-      <label htmlFor="titulo-digite-nomes">Digite nomes:</label>
+      <h1 className="titulo-digite-nomes">Digite nomes:</h1>
 
       <textarea
         id="mensagem"
@@ -64,13 +64,15 @@ function App() {
         onChange={(e) => setTexto(e.target.value)}
       />
 
-      <button 
-        className="btn-sortear" 
-        onClick={sortearNome}>Sortear</button>
+      <div className="container-btns">
+        <button 
+          className="btn limpar" 
+          onClick={limparCampos}>Limpar</button>
 
-      <button 
-        className="btn-limpar" 
-        onClick={limparCampos}>Limpar</button>
+        <button 
+        className="btn sortear" 
+        onClick={sortearNome}>Sortear</button>
+      </div>
 
       {listaOrdenada && (
         <p
