@@ -1,45 +1,82 @@
-import { useState } from 'react';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [texto, setTexto] = useState('');
-  const [resultado, setResultado] = useState('');
+  const [texto, setTexto] = useState("");
+  const [listaOrdenada, setListaOrdenada] = useState("");
+
+  const extrairNumeroFinal = (str) => {
+    const match = str.match(/(\d+)$/);
+    return match ? parseInt(match[1], 10) : NaN;
+  };
+
+  const compararNomes = (a, b) => {
+    const numA = extrairNumeroFinal(a);
+    const numB = extrairNumeroFinal(b);
+
+    if (!isNaN(numA) && !isNaN(numB)) {
+      return numA - numB;
+    } else if (!isNaN(numA)) {
+      return -1;
+    } else if (!isNaN(numB)) {
+      return 1;
+    } else {
+      return a.localeCompare(b);
+    }
+  };
 
   const sortearNome = () => {
-    // Quebra por vírgula ou quebra de linha e remove espaços extras
     const nomes = texto
-      .split(/[\n,]+/) // separa por vírgula ou nova linha
-      .map(nome => nome.trim())
-      .filter(nome => nome !== ''); // remove vazios
+      .split(/[\n,]+/)
+      .map((nome) => nome.trim())
+      .filter((nome) => nome !== "");
 
     if (nomes.length === 0) {
-      setResultado('Nenhum nome válido inserido.');
+      setListaOrdenada("");
       return;
     }
 
-    // Sorteia um nome
-    const nomeSorteado = nomes[Math.floor(Math.random() * nomes.length)];
-    setResultado(nomeSorteado);
+    const nomesOrdenados = [...nomes].sort(compararNomes);
+
+    const listaFormatada = nomesOrdenados
+      .map((nome, i) => `${i + 1}° ${nome}`)
+      .join(", ");
+
+    setListaOrdenada(listaFormatada);
+  };
+
+  const limparCampos = () => {
+    setTexto("");
+    setListaOrdenada("");
   };
 
   return (
-    <div className="App">
-      <label htmlFor="mensagem">Mensagem:</label>
-      <br />
+    <div className="container">
+      <label htmlFor="titulo-digite-nomes">Digite nomes:</label>
+
       <textarea
         id="mensagem"
         rows={10}
         cols={50}
-        placeholder="Separe os nomes por linha ou vírgula"
+        placeholder="Separe os nomes por linha ou vírgula."
+        className="textarea-texto-nomes"
         value={texto}
         onChange={(e) => setTexto(e.target.value)}
       />
-      <br />
-      <button onClick={sortearNome}>Sortear</button>
 
-      {resultado && (
-        <p>
-          <strong>Nome sorteado:</strong> {resultado}
+      <button 
+        className="btn-sortear" 
+        onClick={sortearNome}>Sortear</button>
+
+      <button 
+        className="btn-limpar" 
+        onClick={limparCampos}>Limpar</button>
+
+      {listaOrdenada && (
+        <p
+          className="list-nomes"
+        >
+          <strong>Lista ordenada:</strong> {listaOrdenada}
         </p>
       )}
     </div>
