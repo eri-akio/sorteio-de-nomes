@@ -42,3 +42,24 @@
     color: white;
     border: none;
 }
+
+.list-nomes {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f9fafb;
+  line-height: 1.5;
+  font-size: 0.95rem;
+
+  /* evita que a página fique enorme com listas longas */
+  max-height: 260px;
+  overflow: auto;
+}
+
+/* destaque para o rótulo */
+.list-nomes strong {
+  color: #93c5fd;
+  font-weight: 600;
+}

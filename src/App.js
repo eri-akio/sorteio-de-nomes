@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
   const [texto, setTexto] = useState("");
-  const [listaOrdenada, setListaOrdenada] = useState("");
+  const [listaOrdenada, setListaOrdenada] = useState([]);
 
   const extrairNumeroFinal = (str) => {
     const match = str.match(/(\d+)$/);
@@ -14,15 +14,10 @@ function App() {
     const numA = extrairNumeroFinal(a);
     const numB = extrairNumeroFinal(b);
 
-    if (!isNaN(numA) && !isNaN(numB)) {
-      return numA - numB;
-    } else if (!isNaN(numA)) {
-      return -1;
-    } else if (!isNaN(numB)) {
-      return 1;
-    } else {
-      return a.localeCompare(b);
-    }
+    if (!isNaN(numA) && !isNaN(numB)) return numA - numB;
+    if (!isNaN(numA)) return -1;
+    if (!isNaN(numB)) return 1;
+    return a.localeCompare(b);
   };
 
   const sortearNome = () => {
@@ -32,22 +27,19 @@ function App() {
       .filter((nome) => nome !== "");
 
     if (nomes.length === 0) {
-      setListaOrdenada("");
+      setListaOrdenada([]);
       return;
     }
 
     const nomesOrdenados = [...nomes].sort(compararNomes);
-
-    const listaFormatada = nomesOrdenados
-      .map((nome, i) => `${i + 1}° ${nome}`)
-      .join(", ");
+    const listaFormatada = nomesOrdenados.map((nome, i) => `${i + 1}° ${nome}`);
 
     setListaOrdenada(listaFormatada);
   };
 
   const limparCampos = () => {
     setTexto("");
-    setListaOrdenada("");
+    setListaOrdenada([]);
   };
 
   return (
@@ -65,21 +57,23 @@ function App() {
       />
 
       <div className="container-btns">
-        <button 
-          className="btn limpar" 
-          onClick={limparCampos}>Limpar</button>
-
-        <button 
-        className="btn sortear" 
-        onClick={sortearNome}>Sortear</button>
+        <button className="btn limpar" onClick={limparCampos}>
+          Limpar
+        </button>
+        <button className="btn sortear" onClick={sortearNome}>
+          Sortear
+        </button>
       </div>
 
-      {listaOrdenada && (
-        <p
-          className="list-nomes"
-        >
-          <strong>Lista ordenada:</strong> {listaOrdenada}
-        </p>
+      {listaOrdenada.length > 0 && (
+        <div className="list-nomes">
+          <strong>Lista ordenada:</strong>
+          <ul>
+            {listaOrdenada.map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </ul>
+        </div>
       )}
     </div>
   );
