@@ -1,38 +1,70 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  margin-block: 5rem;
+  margin-inline: auto;
+  width: 70%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: rgb(17 24 39);
+  border-radius: .75rem;
+  padding: 2rem;
+}
+
+.titulo-digite-nomes {
+  font-size: 1.5rem;
+  margin-bottom: 0;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.textarea-texto-nomes {
+  resize: none;
+  border-radius: 10px;
+  border-color: white;
+  margin-block: 1.5rem;
+  padding: 13px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.textarea-texto-nomes:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.3);
+}
+
+.container-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: rgb(37 99 235);
+  color: white;
+  border: none;
+}
+
+.list-nomes {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f9fafb;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  max-height: 260px;
+  overflow: auto;
+}
+
+.list-nomes strong {
+  color: #93c5fd;
+  font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    width: 700px;
   }
 }
