@@ -1,46 +1,48 @@
 .container {
-    margin-block: 5rem;
-    margin-inline: auto;
-    width: 700px;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(17 24 39);
-    border-radius: .75rem;
-    padding: 2rem;
+  margin-block: 5rem;
+  margin-inline: auto;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(17 24 39);
+  border-radius: .75rem;
+  padding: 2rem;
 }
 
 .titulo-digite-nomes {
-    color: white;
+  font-size: 1.5rem;
+  margin-bottom: 0;
+  color: white;
 }
 
 .textarea-texto-nomes {
-    resize: none;
-    border-radius: 10px;
-    border-color: white;
-    margin-block: 1.5rem;
-    padding: 13px;
+  resize: none;
+  border-radius: 10px;
+  border-color: white;
+  margin-block: 1.5rem;
+  padding: 13px;
 }
 
 .textarea-texto-nomes:focus {
-    outline: none; 
-    border-color: #4a90e2;
-    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.3);
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.3);
 }
 
 .container-btns {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .btn {
-    flex: 1;          
-    padding: 10px;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 10px;
-    background-color: rgb(37 99 235);
-    color: white;
-    border: none;
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: rgb(37 99 235);
+  color: white;
+  border: none;
 }
 
 .list-nomes {
@@ -52,14 +54,17 @@
   color: #f9fafb;
   line-height: 1.5;
   font-size: 0.95rem;
-
-  /* evita que a página fique enorme com listas longas */
   max-height: 260px;
   overflow: auto;
 }
 
-/* destaque para o rótulo */
 .list-nomes strong {
   color: #93c5fd;
   font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    width: 700px;
+  }
 }
