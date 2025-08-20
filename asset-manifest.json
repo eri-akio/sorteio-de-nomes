@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/sorteio-de-nomes/static/css/main.d443d099.css",
+    "main.js": "/sorteio-de-nomes/static/js/main.f0bee3b9.js",
+    "static/js/453.08e8f284.chunk.js": "/sorteio-de-nomes/static/js/453.08e8f284.chunk.js",
+    "index.html": "/sorteio-de-nomes/index.html",
+    "main.d443d099.css.map": "/sorteio-de-nomes/static/css/main.d443d099.css.map",
+    "main.f0bee3b9.js.map": "/sorteio-de-nomes/static/js/main.f0bee3b9.js.map",
+    "453.08e8f284.chunk.js.map": "/sorteio-de-nomes/static/js/453.08e8f284.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d443d099.css",
+    "static/js/main.f0bee3b9.js"
+  ]
+}
